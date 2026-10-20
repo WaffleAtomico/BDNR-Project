@@ -8,7 +8,7 @@ Para levantar todo el entorno de desarrollo, asegúrate de tener Docker y Docker
 
 1. Navega a la raíz del proyecto:
    ```bash
-   cd /Users/aimac/Documents/ITESO/BDNR/Proyecto
+   cd /BDNR-Project
    ```
 2. Levanta todos los servicios:
    ```bash
