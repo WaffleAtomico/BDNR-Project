@@ -1,0 +1,12 @@
+{
+  "name": "proyecto-frontend",
+  "version": "1.0.0",
+  "description": "Frontend del proyecto",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Frontend running on port 3000'"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
