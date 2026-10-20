@@ -26,7 +26,7 @@ Para levantar todo el entorno de desarrollo, asegúrate de tener Docker y Docker
 Este proyecto utiliza **Bind Mounts** (volúmenes de mapeo). Esto significa que las carpetas locales (`backend/` y `frontend/`) están "conectadas" en tiempo real con las carpetas dentro de los contenedores.
 
 - **Flujo de trabajo:**
-  1. Abre tu editor favorito (VS Code, PyCharm, etc.) en la carpeta local `/Users/aimac/Documents/ITESO/BDNR/Proyecto`.
+  1. Abre tu editor favorito (VS Code, PyCharm, etc.) en la carpeta local `BDNR-Project`.
   2. Realiza tus cambios en el código localmente.
   3. El contenedor detectará los cambios automáticamente y reiniciará el servidor (si tienes habilitado *Hot Reload*).
 
