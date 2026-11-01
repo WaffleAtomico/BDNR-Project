@@ -51,7 +51,7 @@ services:
     networks:
       - project_network
     restart: always
-
+  
   backend:
     build: ./backend
     container_name: backend_api
@@ -59,10 +59,11 @@ services:
       - "8001:8000"
     volumes:
       - ./backend:/app
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
     environment:
       - DATABASE_URL=mongodb://mongodb:27017
       - CASSANDRA_HOST=cassandra
-      - DGRAPH_HOST=dgraph:8080
+      - DGRAPH_HOST=dgraph:9080
     networks:
       - project_network
     depends_on:
