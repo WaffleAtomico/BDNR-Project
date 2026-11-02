@@ -1,3 +1,7 @@
 pymongo>=4.10.0
 cassandra-driver>=3.29.0
 pydgraph
+boto3
+fastapi[standard]
+uvicorn
+boto3
