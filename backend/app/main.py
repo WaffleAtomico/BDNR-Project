@@ -6,13 +6,13 @@ from app.lib.con_cass import cass_conn
 from app.lib.con_dgh import dgh_conn
 from app.lib.con_mdb import mdb_conn
 from app.lib.con_r2 import r2_conn
-from app.logger import Logger
-from app.utils.create_dgraph_query import create_dgraph_query
+from app.logger.logger import Logger
+from app.utils.dgraph_utils import DgraphUtils
 from fastapi import FastAPI
 
 app = FastAPI(title="FAKE PINTEREST API")
 
-log = Logger.Logger()
+log = Logger()
 
 # Include routers
 app.include_router(mongodb_router)
@@ -44,10 +44,11 @@ async def health_check():
     # Check Dgraph
     dgh_status = "OK"
     try:
-        health_query = create_dgraph_query(
+        dgh_utils = DgraphUtils()
+        health_query = dgh_utils.create_dgraph_query(
             query_name="health",
-            queryfunc='has(name)',
-            attributes=["uid"]
+            queryfunc="has(health)",
+            attributes=["status"]
         )
         dgh_conn.execute_query(health_query)
     except Exception as e:
