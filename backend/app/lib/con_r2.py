@@ -5,14 +5,14 @@ Connection to R2 (Amazon S3-compatible storage) for image uploads.
 Credits on https://www.youtube.com/watch?v=QApVxe_JJhA
 """
 import boto3
-from app.logger import Logger
+from app.logger.logger import Logger
 from fastapi import UploadFile, HTTPException
 from app.lib.config import settings
 from datetime import datetime
 from functools import wraps
 import uuid
 
-log = Logger.Logger()
+log = Logger()
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 MAX_FILE_SIZE_MB = 5
