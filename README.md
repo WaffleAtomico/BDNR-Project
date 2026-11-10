@@ -2,7 +2,7 @@
 
 ## Miembros
 - Hania Fernanda Chavez Camberos
-- Luis Oswaldo Belran Aranda
+- Luis Oswaldo Beltran Aranda
 - Oscar Alejandro Penilla Skakievich
 
 
