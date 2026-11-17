@@ -1,34 +1,28 @@
-from typing import List, Optional
+import os
 
 from app.lib.con_mdb import mdb_conn
+from app.models.mongodb_models import Board, Comment, Pin
 from fastapi import APIRouter
-from pydantic import BaseModel
-from datetime import datetime
 
 router = APIRouter(prefix="/mongodb", tags=["MongoDB"])
 
-class Pin(BaseModel):
-    pin_id: str
-    title: str
-    description: str
-    url: str
-    tags: List[str]
-    author_id: str
-    created_at: datetime
+# Nombre de la base de datos (se puede cambiar con la variable MONGO_DB).
+db = mdb_conn.execute_query(os.getenv("MONGO_DB", "pinterest"))
 
 
 @router.post("/pins")
 async def create_pin(pin: Pin):
-    mdb_conn.client.insert_one("pins", pin.model_dump())
+    db["pins"].insert_one(pin.model_dump())
     return {"message": "Pin creado"}
 
-@router.get("/items")
-async def list_items():
-    # Example query
-    items = mdb_conn.execute_query("items")
-    return {"items": items}
 
-@router.post("/items")
-async def create_item(item: Item):
-    mdb_conn.client.insert_one("items", item.dict())
-    return {"message": "Item created", "item": item}
+@router.post("/boards")
+async def create_board(board: Board):
+    db["boards"].insert_one(board.model_dump())
+    return {"message": "Board creado"}
+
+
+@router.post("/comments")
+async def create_comment(comment: Comment):
+    db["comments"].insert_one(comment.model_dump())
+    return {"message": "Comentario creado"}
