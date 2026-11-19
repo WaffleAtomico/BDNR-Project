@@ -6,7 +6,7 @@ from app.lib.con_cass import cass_conn
 from app.lib.con_dgh import dgh_conn
 from app.lib.con_mdb import mdb_conn
 from app.lib.con_r2 import r2_conn
-from app.logger.logger import Logger
+from app.logger.Logger import Logger
 from app.utils.dgraph_utils import DgraphUtils
 from fastapi import FastAPI
 

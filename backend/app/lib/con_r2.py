@@ -5,7 +5,7 @@ Connection to R2 (Amazon S3-compatible storage) for image uploads.
 Credits on https://www.youtube.com/watch?v=QApVxe_JJhA
 """
 import boto3
-from app.logger.logger import Logger
+from app.logger.Logger import Logger
 from fastapi import UploadFile, HTTPException
 from app.lib.config import settings
 from datetime import datetime
