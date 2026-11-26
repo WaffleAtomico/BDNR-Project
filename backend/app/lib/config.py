@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     CASSANDRA_HOST: str
     DGRAPH_HOST: str
     MONGO_URL: str
+    MONGO_DB: str = "pinterest"
     R2_ACCESS_KEY_ID: str
     R2_SECRET_ACCESS_KEY: str
     R2_BUCKET_NAME: str
