@@ -1,13 +1,12 @@
-import os
-
+from app.lib.config import settings
 from app.lib.con_mdb import mdb_conn
 from app.models.mongodb_models import Board, Comment, Pin
 from fastapi import APIRouter
 
 router = APIRouter(prefix="/mongodb", tags=["MongoDB"])
 
-# Nombre de la base de datos (se puede cambiar con la variable MONGO_DB).
-db = mdb_conn.execute_query(os.getenv("MONGO_DB", "pinterest"))
+# Nombre de la base de datos (variable MONGO_DB del .env).
+db = mdb_conn.execute_query(settings.MONGO_DB)
 
 
 @router.post("/pins")
